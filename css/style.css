@@ -7714,7 +7714,7 @@ height: 100%;
 }
 
 .promo.widget.widget-help {
-  background: url(http://vgb.org.ar/img/slider/slider_1.jpg);
+  background: url(../images/slider/bg-hero.jpg);
   background-size: cover;
   background-color: #c5263b;
   background-blend-mode: multiply;
