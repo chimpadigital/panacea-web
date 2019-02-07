@@ -10,6 +10,8 @@ if($_POST)
     // Site Settings
     $site_title          = "Hotel Himara";
     $site_url            = "https://eagle-themes.com/templates/himara";
+    $facebook_link       = "https://www.facebook.com/";
+    $twitter_link        = "https://twitter.com/";
     $admin_phone         = "+1 888 123 4567";
 
     // Email Settings
@@ -80,9 +82,11 @@ if($_POST)
         $output = json_encode(array('type'=>'error', 'text' => $booking_date));
         die($output);
     }
-
+    // Unique Booking iD
+    $bookingId = time().''.mt_rand();
 
     //Admin Message
+    $admin_message = str_replace('%booking_id%', $bookingId, $admin_message);
     $admin_message = str_replace('%customer_name%', $customer_name, $admin_message);
     $admin_message = str_replace('%customer_email%', $customer_email, $admin_message);
     $admin_message = str_replace('%customer_phone%', $customer_phone, $admin_message);
@@ -95,6 +99,7 @@ if($_POST)
 
 
     //Customer Message
+    $customer_message = str_replace('%booking_id%', $bookingId, $customer_message);
     $customer_message = str_replace('%customer_name%', $customer_name, $customer_message);
     $customer_message = str_replace('%customer_email%', $customer_email, $customer_message);
     $customer_message = str_replace('%customer_phone%', $customer_phone, $customer_message);
